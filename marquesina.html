@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Marquesina Redes Sociales</title>
+  <style>
+    body { background: #111; color: #fff; font-family: Arial, sans-serif; }
+    .marquee {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      border-top: 2px solid #f0c000;
+      border-bottom: 2px solid #f0c000;
+      padding: 10px 0;
+    }
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll 20s linear infinite;
+      font-size: 20px;
+    }
+    .icon {
+      vertical-align: middle;
+      width: 24px;
+      height: 24px;
+      margin: 0 8px;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
+</head>
+<body>
+  <div class="marquee">
+    <span>
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" class="icon"> Facebook: /TuUsuario
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="icon"> YouTube: /TuCanal
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968919.png" class="icon"> Kick: /TuUsuarioKick
+      ⭐ ¡Gracias por mirar, dar like y seguirme! ⭐
+    </span>
+  </div>
+</body>
+</html>
