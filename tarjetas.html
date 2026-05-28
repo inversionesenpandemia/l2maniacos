@@ -3,56 +3,79 @@
 <head>
   <meta charset="UTF-8">
   <title>Tarjetas Promocionales</title>
-<style>
-  /* Estilo general */
-  .card h2 { color: #f0c000; margin: 8px 0; }
-  .card p { margin: 4px 0; }
+  <style>
+    body { background: #111; color: #fff; font-family: Arial, sans-serif; }
+    .slider {
+      width: 420px;
+      height: 260px;   /* más alto para que no se corte */
+      margin: 50px auto;
+      overflow: hidden;
+      border: 2px solid #f0c000;
+      border-radius: 10px;
+      position: relative;
+    }
+    .cards {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s ease-in-out;
+    }
+    .card {
+      min-width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;   /* centra verticalmente */
+      text-align: center;
+      padding: 15px;
+      box-sizing: border-box;
+    }
 
-  /* Tarjeta 1: título grande y elegante */
-  .card1 h2 { font-size: 26px; font-weight: bold; font-family: "Georgia", serif; }
-  .card1 p { font-size: 18px; font-weight: 600; }
+    /* Estilos individuales */
+    .card1 h2 { font-size: 28px; font-weight: bold; font-family: "Georgia", serif; color: #f0c000; }
+    .card1 p { font-size: 20px; font-weight: 600; }
 
-  /* Tarjeta 2: horarios más compactos */
-  .card2 h2 { font-size: 22px; font-weight: bold; }
-  .card2 p { font-size: 16px; font-weight: 500; }
+    .card2 h2 { font-size: 24px; font-weight: bold; color: #f0c000; }
+    .card2 p { font-size: 18px; font-weight: 500; }
 
-  /* Tarjeta 3: eventos PvP con letra más nítida */
-  .card3 h2 { font-size: 24px; font-weight: 700; text-transform: uppercase; }
-  .card3 p { font-size: 15px; font-weight: bold; font-family: "Arial Black", sans-serif; }
+    .card3 h2 { font-size: 24px; font-weight: 700; text-transform: uppercase; color: #f0c000; }
+    .card3 p { font-size: 16px; font-weight: bold; font-family: "Arial Black", sans-serif; }
 
-  /* Tarjeta 4: Epic Boss con estilo destacado */
-  .card4 h2 { font-size: 24px; font-weight: 800; font-family: "Trebuchet MS", sans-serif; }
-  .card4 p { font-size: 18px; font-weight: bold; color: #ff4444; }
-</style>
-
-<div class="cards" id="cards">
-  <!-- 1ra tarjeta -->
-  <div class="card card1">
-    <h2>L2 Reborn x10 Interlude</h2>
-    <p>🌐 l2reborn.org</p>
+    .card4 h2 { font-size: 26px; font-weight: 800; font-family: "Trebuchet MS", sans-serif; color: #f0c000; }
+    .card4 p { font-size: 20px; font-weight: bold; color: #ff4444; }
+  </style>
+</head>
+<body>
+  <div class="slider">
+    <div class="cards" id="cards">
+      <!-- 1ra tarjeta -->
+      <div class="card card1">
+        <h2>L2 Reborn x10 Interlude</h2>
+        <p>🌐 l2reborn.org</p>
+      </div>
+      <!-- 2da tarjeta -->
+      <div class="card card2">
+        <h2>Días de Streaming</h2>
+        <p>📅 Lunes a Viernes — 13:00 a 21:00 hs</p>
+        <p>⚔️ Sábado de Baium — 18:00 hs</p>
+        <p>🐉 Domingo Asedio / Antharas / Valakas — desde 14:30 hs</p>
+      </div>
+      <!-- 3ra tarjeta -->
+      <div class="card card3">
+        <h2>Eventos PvP</h2>
+        <p>🔥 Multi Team Battle — 23 hs / 07 hs / 15 hs</p>
+        <p>🏰 Capture the Base — 01 hs / 09 hs / 17 hs</p>
+        <p>🐲 Epic Boss Challenger — 05 hs / 13 hs / 21 hs</p>
+        <p>💀 Death Match — 03 hs / 11 hs / 19 hs</p>
+      </div>
+      <!-- 4ta tarjeta -->
+      <div class="card card4">
+        <h2>Epic Boss Today</h2>
+        <p>👑 Queen Ant — 00:39 hs</p>
+      </div>
+    </div>
   </div>
-  <!-- 2da tarjeta -->
-  <div class="card card2">
-    <h2>Días de Streaming</h2>
-    <p>📅 Lunes a Viernes — 13:00 a 21:00 hs</p>
-    <p>⚔️ Sábado de Baium — 18:00 hs</p>
-    <p>🐉 Domingo Asedio / Antharas / Valakas — desde 14:30 hs</p>
-  </div>
-  <!-- 3ra tarjeta -->
-  <div class="card card3">
-    <h2>Eventos PvP</h2>
-    <p>🔥 Multi Team Battle — 23 hs / 07 hs / 15 hs</p>
-    <p>🏰 Capture the Base — 01 hs / 09 hs / 17 hs</p>
-    <p>🐲 Epic Boss Challenger — 05 hs / 13 hs / 21 hs</p>
-    <p>💀 Death Match — 03 hs / 11 hs / 19 hs</p>
-  </div>
-  <!-- 4ta tarjeta -->
-  <div class="card card4">
-    <h2>Epic Boss Today</h2>
-    <p>👑 Queen Ant — 00:39 hs</p>
-  </div>
-</div>
-
 
   <script>
     const cards = document.getElementById('cards');
@@ -62,8 +85,9 @@
     setInterval(() => {
       index = (index + 1) % total;
       cards.style.transform = `translateX(-${index * 100}%)`;
-    }, 5000); // cambia cada 4 segundos
+    }, 4000); // cambia cada 4 segundos
   </script>
 </body>
 </html>
+
 
