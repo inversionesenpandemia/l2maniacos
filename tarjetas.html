@@ -2,12 +2,12 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Tarjetas Horizontales</title>
+  <title>Tarjetas Promocionales</title>
   <style>
     body { background: #111; color: #fff; font-family: Arial, sans-serif; }
     .slider {
-      width: 400px;   /* ancho del recuadro */
-      height: 150px;  /* alto del recuadro */
+      width: 400px;
+      height: 150px;
       margin: 50px auto;
       overflow: hidden;
       border: 2px solid #f0c000;
@@ -24,32 +24,41 @@
       min-width: 100%;
       height: 100%;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-size: 20px;
+      text-align: center;
+    }
+    .card h2 {
+      color: #f0c000;
+      margin: 5px 0;
+    }
+    .card p {
+      margin: 5px 0;
+      font-size: 18px;
     }
     .card img {
-      width: 28px;
-      height: 28px;
-      margin-right: 10px;
-      vertical-align: middle;
+      width: 60px;
+      height: auto;
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
   <div class="slider">
     <div class="cards" id="cards">
+      <!-- 1ra tarjeta -->
       <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"> Facebook: /TuUsuario
+        <!-- Si consigues el logo oficial de L2 Reborn, reemplaza el src -->
+        <!-- <img src="URL_DEL_LOGO" alt="L2 Reborn Logo"> -->
+        <h2>L2 Reborn x10 Interlude</h2>
+        <p>🌐 l2reborn.org</p>
       </div>
+      <!-- 2da tarjeta -->
       <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"> YouTube: /TuCanal
-      </div>
-      <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968919.png"> Kick: /TuUsuarioKick
-      </div>
-      <div class="card">
-        ⭐ ¡Gracias por mirar, dar like y seguirme! ⭐
+        <h2>Días de Streaming</h2>
+        <p>📅 Lunes a Viernes</p>
+        <p>🕒 13:00 a 21:00 hs</p>
       </div>
     </div>
   </div>
@@ -62,7 +71,8 @@
     setInterval(() => {
       index = (index + 1) % total;
       cards.style.transform = `translateX(-${index * 100}%)`;
-    }, 3000); // cambia cada 3 segundos
+    }, 4000); // cambia cada 4 segundos
   </script>
 </body>
 </html>
+
